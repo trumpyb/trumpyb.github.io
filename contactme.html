@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Me</title>
+</head>
+<body>
+    <center><h1>Contact Me</h1></center>
+    <form action="#" method="post" id="contactform"
+    onsubmit="alert('Not Implemented yet')">
+        <br id="fdiv">
+            <label for="myname">Name:</label><br/>
+            <input type="text" name="myname" id="myname" requred><br/><br/>
+            
+            <label for="myeamil">Email:</label><br/>
+            <input type="emial" name="myemail" id="myeamil" requred><br/><br/>
+
+            <label for="subject">Subject:</label>
+            <input type="text" name="subject" id="subject"
+                    placeholder="CS 101" required><br/><br/>
+
+            <textarea name="tbody" id="tbody" placeholder="Enter Message" required></textarea>
+
+            <label for="priority">Priority:</label>
+            <select Name="priority" id="priority">
+                <option disabled selection value>--- Select an option ---</option>
+                <option value="low">Low</option>
+                <option value="med">Medium</option>
+                <option value="high">High</option>
+                <option value="Crit">Critical</option>
+            </select><br/><br/>
+            <label for="attach">Attachments:</label><br/>
+            <input type="file" name="attach" id="attach"><br/><br/>
+        <label for="followup">Do you want a follow up email?</label>
+        <input type="radio" name="followup" id="followupy" value="yes">
+        <label for="followupy" class="followlabel">Yes</label> 
+        <input type="radio" name="followup" id="followupn" value="no">
+        <label for="followupn" class="followlabel">No</label>   <br/><br/> 
+    
+        <input type="submit" value="submit"  id="sbutton">
+    </div>
+    </form>
+</body>
+</html>
