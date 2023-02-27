@@ -5,25 +5,94 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Me</title>
+    <style>
+        *{
+            font-size: 18px auto;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            
+            
+        }
+        #sbutton{
+            color: white;
+            background: blueviolet;
+            font-size: 24 auto;
+            border: 2px solid white auto;
+            padding: 15px auto;
+             border-radius: 10px /*Borders Round*/;
+        }
+        body{
+            background: #555;
+        }
+        label{
+            font-weight: bold;
+        }
+        h1{
+            font-size: 28px;
+            color: white;
+        }
+    
+        input{
+            width: 250px;
+        }
+        textarea{
+            min-width: 250;
+            min-height: 50;
+        }
+        input, textarea{
+            max-width: 250px;
+        }
+        #followupy{
+            margin-left: -125px;
+        }
+        #followupy, #followupn{
+            margin-right: -100px;
+        }
+        .followuplbl{
+            font-weight: normal;
+        }
+        form{
+            min-width: 550px;
+            margin-bottom: 20px;
+        }
+        .rqd{
+            color:red;
+            font-weight: normal;
+        }
+        #attach{
+            background: white !important;
+            border: 1px solid #777;
+            border-radius: 2px;
+        }
+        #fdiv{
+            background: #ccc;
+            border-radius: 5px;
+            width: 50%;
+            text-align: center;
+            margin: 0 auto;
+            /* 30 top bottom 15 l/r */
+            padding: 30px 15px;
+        }
+
+    </style>
 </head>
 <body>
     <center><h1>Contact Me</h1></center>
-    <form action="#" method="post" id="contactform"
+    <form action="#" method="post" id="contactform" style="text-align: Center;"
     onsubmit="alert('Not Implemented yet')">
         <br id="fdiv">
-            <label for="myname">Name:</label><br/>
-            <input type="text" name="myname" id="myname" requred><br/><br/>
+            <label for="myname">Name: <span class="rqd">*</span></label><br/>
+            <input type="text" name="myname" id="myname" required><br/><br/>
             
-            <label for="myeamil">Email:</label><br/>
-            <input type="emial" name="myemail" id="myeamil" requred><br/><br/>
+            <label for="myeamil">Email:<span class="rqd">*</span></label><br/>
+            <input type="emial" name="myemail" id="myeamil" required><br/><br/>
 
-            <label for="subject">Subject:</label>
+            <label for="subject">Subject:<span class="rqd">*</span></label>
             <input type="text" name="subject" id="subject"
                     placeholder="CS 101" required><br/><br/>
-
+                    <span class="rqd">*</span>
             <textarea name="tbody" id="tbody" placeholder="Enter Message" required></textarea>
 
-            <label for="priority">Priority:</label>
+            <label for="priority">Priority:<span class="rqd">*</span></label>
             <select Name="priority" id="priority">
                 <option disabled selection value>--- Select an option ---</option>
                 <option value="low">Low</option>
