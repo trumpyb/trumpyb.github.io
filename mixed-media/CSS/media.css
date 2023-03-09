@@ -6,6 +6,9 @@ table, td, th, thead{
     margin-top: 10%;
     font-family: Arial, Helvetica, sans-serif;
 }
+body{
+    background-color: darkgreen;
+}
 /*
 width  height  background-color  color  background-image  border  border-radius  font-size  text-align  display
 */
