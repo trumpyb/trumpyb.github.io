@@ -1,4 +1,4 @@
-/* Style sheet created by: Student's First Name Student's Last Name, Today's Date */
+/* Style sheet created by: Benjamin Trumpy, 03/10/2023 */
 
 /* Style for body specifies a background color */
 body {
@@ -30,6 +30,41 @@ nav {
 	font-size: 1em;
 	font-weight: bold;
 	text-align: center;
+}
+
+/* Style specifies properties for unordered list */
+nav ul{
+	padding: 0;
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+/*Style for nav li*/
+
+ nav li{
+	background-color: #ff6600;
+	border-radius: 1em;
+	list-style-type: none;
+	margin: 0.3em;
+	padding: 0.4em;
+}
+
+/*style for links*/
+
+nav li a{
+	color: #ffffff;
+	text-decoration: none;
+}
+
+/*Style for Mobile*/
+
+.mobile{
+	display: inline;
+}
+
+/*Style to create fluid image */
+img {
+	max-width: 100%;
 }
 
 /* Style for the main specifies a block display, text properties, margins, padding, rounded corners, and borders  */
