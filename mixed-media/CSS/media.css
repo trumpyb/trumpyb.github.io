@@ -5,10 +5,19 @@ table, td, th, thead{
     margin: 5% auto;
     margin-top: 10%;
     font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
 }
 body{
     background-color: darkgreen;
+    background-image: linear-gradient(red, yellow);
+}
+img, iframe{
+    border-radius: 101px;
+}
+*{
+    font-size: medium;
+    text-align: center;
 }
 /*
-width  height  background-color  color  background-image  border  border-radius  font-size  text-align  display
+width  height   color    display
 */
