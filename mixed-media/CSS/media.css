@@ -12,7 +12,7 @@ body{
     background-image: linear-gradient(red, yellow);
 }
 img, iframe{
-    border-radius: 101px;
+    border-radius: 100px;
 }
 *{
     font-size: medium;
