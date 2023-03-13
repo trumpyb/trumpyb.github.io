@@ -6,6 +6,7 @@ table, td, th, thead{
     margin-top: 10%;
     font-family: Arial, Helvetica, sans-serif;
     text-align: center;
+    color: black;
 }
 body{
     background-color: darkgreen;
@@ -13,11 +14,11 @@ body{
 }
 img, iframe{
     border-radius: 100px;
+    width: 100px;
+    height: 100px;
+    display: inline;
 }
 *{
     font-size: medium;
-    text-align: center;
+    text-align: center;   
 }
-/*
-width  height   color    display
-*/
