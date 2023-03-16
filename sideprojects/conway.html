@@ -5,6 +5,236 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Conway's Game Of Life</title>
+    <script>
+        var Context = {
+    ctx: null,
+    canvas: null,
+    getCanvas: function() {
+        if (this.canvas === null) {
+            this.canvas = document.getElementById('screen');
+        }
+        return this.canvas;
+    },
+    getContext: function() {
+        if (this.ctx === null) {
+            var canvas = this.getCanvas();
+            this.ctx = canvas.getContext('2d');         
+        }        
+        return this.ctx;    
+    }
+};
+
+var GRID_WIDTH = 60;
+var GRID_HEIGHT = 60;
+var GRID_CELL_SIZE = 5;
+var GRID_STATE_ALIVE = 1;
+var GRID_STATE_DEAD = 0;
+var GRID_COLOR_ALIVE = 'rgb(20, 20, 20)';
+var GRID_COLOR_DEAD = 'rgb(220, 220, 220)';
+
+function GridCell(x, y) {
+    this.x = x;
+    this.y = y;
+    this.state = GRID_STATE_DEAD;
+    this.nextState = GRID_STATE_DEAD;
+    this.colorIndex = 0;
+}
+
+GridCell.prototype.draw = function(ctx) {
+    var x = this.x * GRID_CELL_SIZE;
+    var y = this.y * GRID_CELL_SIZE;
+    ctx.fillStyle = this.isAlive() ? GRID_COLOR_ALIVE : GRID_COLOR_DEAD;
+    ctx.fillRect(x, y, GRID_CELL_SIZE, GRID_CELL_SIZE);
+};
+
+GridCell.prototype.setState = function(state) {
+    this.state = this.nextState = state;
+};
+
+GridCell.prototype.setNextState = function(state) {
+    this.nextState = state;
+};
+
+GridCell.prototype.switchState = function() {
+    this.state = this.nextState;
+};
+
+GridCell.prototype.isAlive = function() {
+    return this.state == GRID_STATE_ALIVE;
+};
+
+GridCell.prototype.countLiveNeighbors = function(grid) {
+    var liveCount = 0;
+
+    // Count neighbors
+    for (var i = -1; i < 2; ++i) {
+        for (var j = -1; j < 2; ++j) {
+            var dx = (this.x + i) % grid.width;
+            var dy = (this.y + j) % grid.height;
+
+            var cell = grid.getCell(dx, dy);
+            if (cell && cell != this && cell.isAlive()) {
+                ++liveCount;
+            }
+        }
+    }
+
+    return liveCount;
+};
+
+function Grid(width, height, cellSize) {
+    var cellSize = cellSize || GRID_CELL_SIZE;
+    this.grid = Array();
+    this.width = width;
+    this.height = height;
+    this.cellSize = cellSize;
+    this.pWidth = width * cellSize;
+    this.pHeight = height * cellSize;
+    // Initialize grid cells
+    var grid = this.grid;
+    for (var j = 0; j < height; ++j) {
+        for (var i = 0; i < width; ++i) {
+            grid[i + j * height] = new GridCell(i, j);
+        }
+    }
+}
+
+Grid.prototype.getCell = function(x, y) {
+    return this.grid[x + y * this.height];
+};
+
+Grid.prototype.getCellAt = function(x, y) {
+    var xcell = Math.floor(x / this.cellSize);
+    var ycell = Math.floor(y / this.cellSize);
+    return this.getCell(xcell, ycell);
+};
+
+Grid.prototype.draw = function(ctx) {
+    ctx.clearRect(0, 0, this.pWidth, this.pHeight);
+    for (var j = 0; j < this.height; ++j) {
+        for (var i = 0; i < this.width; ++i) {
+            var cell = this.getCell(i, j);
+            cell.switchState();
+            cell.draw(ctx);
+        }
+    }
+};
+
+Grid.prototype.cycle = function() {
+    for (var x = 0; x < this.width; ++x) {
+        for (var y = 0; y < this.height; ++y) {
+            var cell = this.getCell(x, y),
+                live = cell.countLiveNeighbors(this);
+
+            if (cell.isAlive()) {
+                if (live < 2 || live > 3) {
+                    cell.setNextState(GRID_STATE_DEAD);
+                }
+            } else if (live == 3) {
+                cell.setNextState(GRID_STATE_ALIVE);
+            }
+        }
+    }
+};
+
+Grid.prototype.randomize = function(chanceToLive) {
+    var chance = (100 - (chanceToLive || 5));
+    for (var y = 0; y < this.height; ++y) {
+        for (var x = 0; x < this.width; ++x) {
+            var cell = this.getCell(x, y),
+                rand = 1 + Math.floor(Math.random() * (100 + 1)),
+                alive = rand > chance;
+
+            cell.setState(alive ? GRID_STATE_ALIVE : GRID_STATE_DEAD);
+        }
+    }    
+};
+
+function MouseTool(grid) {
+    this.grid = grid;
+    this.drawing = false;
+    this.state = GRID_STATE_ALIVE;
+}
+
+MouseTool.prototype.mousedown = function(event) {
+    this.drawing = true;
+
+    var cell = this.grid.getCellAt(event._x, event._y);
+    this.state = cell.isAlive() ? GRID_STATE_DEAD : GRID_STATE_ALIVE;
+    cell.setState(this.state);
+};
+
+MouseTool.prototype.mousemove = function(event) {
+    if (this.drawing) {
+        var cell = this.grid.getCellAt(event._x, event._y);
+        cell.setState(this.state);
+    }
+};
+
+MouseTool.prototype.mouseup = function(event) {
+    this.drawing = false;
+};
+
+/* Init */
+function init() {
+    var myGrid = new Grid(GRID_WIDTH, GRID_HEIGHT, GRID_CELL_SIZE);
+    myGrid.randomize();
+    var myContext = Context.getContext();
+    var mouseTool = new MouseTool(myGrid);
+
+    function step() {
+        myGrid.cycle();
+        myGrid.draw(myContext);
+    }
+    var interval = setInterval(step, 1000);
+
+    var randButton = document.getElementById('random');
+    randButton.onclick = function() {
+        var textField = document.getElementById('chanceOfLife');
+        var val = parseInt(textField.value);
+        myGrid.randomize(val);
+        myGrid.draw(myContext);
+    };
+
+    var stepButton = document.getElementById('step');
+    stepButton.onclick = function() {
+        var stepTime = document.getElementById('stepTime');
+        var val = parseInt(stepTime.value);
+
+        clearInterval(interval);
+        interval = setInterval(step, val);
+    };
+
+    var stopButton = document.getElementById('stop');
+    stopButton.onclick = function() {
+        clearInterval(interval);
+    };
+
+    // Attach drawing events to canvas
+    var canvas = Context.getCanvas();
+    var eventListener = function(event) {
+        if (event.layerX || event.layerX == 0) {
+            event._x = event.layerX;
+            event._y = event.layerY;
+        } else if (event.offsetX || event.offsetX == 0) {
+            event._x = event.offsetX;
+            event._y = event.offsetY;
+        }
+
+        var fn = mouseTool[event.type];
+        if (fn) {
+            fn.call(mouseTool, event);
+            myGrid.draw(myContext);
+        }
+    };
+
+    canvas.addEventListener('mousedown', eventListener, false);
+    canvas.addEventListener('mouseup', eventListener, false);
+    canvas.addEventListener('mousemove', eventListener, false);
+    document.onselectstart = function() { return false; };
+}
+init();
+    </script>
 </head>
 <body>
     
