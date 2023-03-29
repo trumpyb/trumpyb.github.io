@@ -15,5 +15,5 @@ button{
 *{
     background-color: #edf0f5;   
     font-family: "Freight Sans", "Lucida Grande", "Tahoma", "Verdana", "Arial", "sans-serif";
-       
+    align-self: center auto;
  }
