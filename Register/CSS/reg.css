@@ -6,3 +6,14 @@ a{
     font-size: 15px;
     
 }
+button{
+    background-color: #659d50; 
+    border-color: #659d50 !important;
+    border-radius: 10;
+   }
+   
+   *{
+       background-color: #edf0f5;   
+       font-family: "Freight Sans", "Lucida Grande", "Tahoma", "Verdana", "Arial", "sans-serif";
+       
+   }
