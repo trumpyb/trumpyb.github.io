@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prog58b</title>
+</head>
+<body>
+    <input type="number" id="A" name="A">
+    <input type="number" id="B" name="B">
+    <input type="number" id="C" name="C">
+    <button onclick="calc();">Calculate</button>
+<p id="output"></p>
+<script>
+    function calc() {
+        var A=document.getElementById('A').value;
+    A=Number(A);
+
+    var B=document.getElementById('B').value;
+    B=Number(B);
+
+    var C=document.getElementById('C').value;
+    C=Number(C);
+
+    var prt=(-B + Math.sqrt(B**2 - 4 * A * C)) / 2 * A;
+    var nrt=(-B - Math.sqrt(B**2 - 4 * A * C)) / 2 * A;
+
+     var out = document.getElementById("output");
+     out.innerText= prt+"             "+nrt;
+    }
+
+</script>
+</body>
+</html>
