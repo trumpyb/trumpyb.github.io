@@ -7,6 +7,32 @@
     <title>prog54b</title>
 </head>
 <body>
+    <label for="n1">Num1: </label>
+    <input type="number" id="n1" name="n1">
 
+    <label for="n2">Num2: </label>
+    <input type="number" id="n2" name="n2">
+
+    <label for="n3">Num3: </label>
+    <input type="number" id="n3" name="n3">
+
+    <label for="n4">Num4: </label>
+    <input type="number" id="n4" name="n4">
+
+    <button onclick="
+        var num1 = document.getElementById('n1').value;
+        num1 = Number(num1);
+        var num2 = document.getElementById('n2').value;
+        num2 = Number(num2);
+        var num3 = document.getElementById('n3').value;
+        num3 = Number(num3);
+        var num4 = document.getElementById('n4').value;
+        num4 = Number(num4);
+
+        var sum=num1+num2+num3+num4
+        var average=sum/4
+        alert('average: '+average+'           sum: '+sum)
+        
+    ">Calculate Sum and Average</button>
 </body>
 </html>
