@@ -9,9 +9,9 @@
 <body>
     <label for="pnds">Pounds: </label>
     <input type="number" id="pnds" name="pnds"><br/>
-    <label for="shil">Pounds: </label>
+    <label for="shil">Shillings: </label>
     <input type="number" id="shil" name="shil"><br/>
-    <label for="penc">Pounds: </label>
+    <label for="penc">Pence: </label>
     <input type="number" id="penc" name="penc"><br/>
 
     <button onclick="
@@ -25,7 +25,7 @@
         penc=Number(penc);
 
         var decp = pnds+(shil/20)+(penc/12/20);
-
+        decp=decp.toFixed(2); /* Round To Two Decimal*/
         alert('Decimal Pounds ='+decp)
     
     ">Convert to Decimal Pounds</button>
