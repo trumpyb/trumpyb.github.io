@@ -7,14 +7,23 @@
     <title>Prog93a</title>
 </head>
 <body>
+    <button onclick="calculate()">Calculate Bill</button>
     <input type="text" id="kwh">
-    <p id="output"></p>
-    <button onclick="calculate()"></button>
+    <h1>C O M P S C I  Electric</h1>
+    <hr>
+    <p id="kwUsed"></p>
+    <hr>
+    <br/>
+    <p id="bill"></p>
     <script>
-        function calculate(){
-            var kwh= number(document.getElementById("kwh"))
-            var rate= kwh*0.0475
-        }
+        function calculate() {
+            var KWU = document.getElementById("kwUsed");
+            var bil = document.getElementById("bill");
+            var kwh= number(document.getElementById("kwh"));
+            var rate= kwh*0.0475;
+            KWU.innerText="Kilowatts Used                      "+kwh;
+            bil.innerText="Base Rate  "+kwh+" @  ¢.0475   "+rate.toFixed(2)+"Surcharge                 "+(rate*.1).toFixed(2)+"Citytax                          "+(rate*.03).toFixed(2);
+        }   
     </script> 
 </body>
 </html>
