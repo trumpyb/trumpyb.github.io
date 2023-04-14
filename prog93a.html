@@ -8,7 +8,7 @@
 </head>
 <body>
     <button onclick="calculate()">Calculate Bill</button>
-    <input type="text" id="kwh">
+    <input type="text" id="kwh" name="kwh">
     <h1>C O M P S C I  Electric</h1>
     <hr>
     <p id="kwUsed"></p>
@@ -17,11 +17,12 @@
     <p id="bill"></p>
     <script>
         function calculate() {
-            var KWU = document.getElementById("kwUsed");
-            var bil = document.getElementById("bill");
-            var kwh= number(document.getElementById("kwh"));
+            var kwh= Number(document.getElementById("kwh").value);
             var rate= kwh*0.0475;
+
+            var KWU = document.getElementById("kwUsed");
             KWU.innerText="Kilowatts Used                      "+kwh;
+            var bil = document.getElementById("bill");
             bil.innerText="Base Rate  "+kwh+" @  ¢.0475   "+rate.toFixed(2)+"Surcharge                 "+(rate*.1).toFixed(2)+"Citytax                          "+(rate*.03).toFixed(2);
         }   
     </script> 
