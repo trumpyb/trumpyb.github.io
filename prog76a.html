@@ -10,8 +10,15 @@
     <label for="Num">Enter Number Between 1 and 9 (inclusive)</label>
     <input type="Number" id="num" name="num">
     <button onclick="surprise()">Calculate</button>
+    <button onclick="reset()">Reset</button>
     <p id="out"></p>
     <script>
+        function reset() {
+            var p=document.getElementById("out");
+            p.innerText="";
+        }
+
+
         function surprise() {
             var num= Number(document.getElementById("num").value);
             var p=document.getElementById("out");
