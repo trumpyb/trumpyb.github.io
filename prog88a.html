@@ -18,6 +18,15 @@
             var num1=Number(document.getElementById("num1").value);
             var num2=Number(document.getElementById("num2").value);
             var out= document.getElementById("output");
+            var test=
+            out.innerText=""
+            out.innerText+="sum is "+(num1+num2)+"\n"
+            out.innerText+="Difference is "+(num1-num2)+"\n"
+            out.innerText+="product is "+(num1*num2)+"\n"
+            out.innerText+="Average is "+(num1+num2)/2+"\n"
+            out.innerText+="Distance is "+Math.abs(num1-num2)+"\n"
+            out.innerText+="Maximum is "+(Math.abs(num1-num2)+num1+num2)/2+"\n"
+            out.innerText+="Minimun is "+((num1+num2)-(Math.abs(num1-num2)+num1+num2)/2)
         }
     </script>
 </body>
