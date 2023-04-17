@@ -23,24 +23,17 @@
             var length=Number(document.getElementById("length").value)
             var width=Number(document.getElementById("width").value)
             var height=Number(document.getElementById("height").value)
-            var cubic=length*width*height
-            var weightlimit=27
-            var spacelimit=100000
             var output=document.getElementById("opt")
-
-            if(cubic>spacelimit){
+            if(weight*length*width*height>0 && weight*length>0  && width*height>0 && weight*width>0 && length*height>0){
+            if(length*width*height>100000){
                 output.innerText="Too large"
             }
-            if(weight>weightlimit){
+            if(weight>27){
                 output.innerText="Too Heavy"
             }
-            if(cubic>spacelimit && weight>weightlimit){
+            if(length*width*height>100000 && weight>27){
                 output.innerText="Too large and too heavy."
             }
-
-
-
-
         }
     </script>
 </body>
