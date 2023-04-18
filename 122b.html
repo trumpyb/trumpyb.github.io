@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label for="pay">Hourly Pay?</label>
+    <input type="number" id="pay" name="pay">
+    <button onclick="calculate()">Calculate</button>
+    <p id="opt"></p>
+    <script>
+        function calculate(){
+        var pay=Number(document.getElementById("pay").value)
+        var out=document.getElementById("opt")
+        var lcv=1
+        out.innerHTML="Pay&emsp;Hours<br>"
+        while(lcv<=40){
+            out.innerHTML+=(pay*lcv)+"&emsp;"+lcv+"<br>"
+            lcv++
+        }
+    }
+    </script>
+</body>
+</html>
