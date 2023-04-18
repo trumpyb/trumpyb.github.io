@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>prog122a</title>
+</head>
+<body>
+    <label id="nuum">Input Number</label>
+    <input type="number" id="num" name="num">
+    <button onclick="calculate()">Calculate</button>
+    <p id="opt"></p>
+    <script>
+        function calculate() { 
+            var num=Number(document.getElementById("num").value);
+            var out=document.getElementById("opt");
+            var lcv=1;
+            out.innerText="Number"+"Square"+"Square root\n";
+            if(num>0){
+            while (lcv<=num){
+                out.innerText+=lcv+"   "+(lcv**2)+ "   "+Math.sqrt(lcv);+"\n"
+                lcv++;
+            }
+            }
+         }
+    </script>
+</body>
+</html>
