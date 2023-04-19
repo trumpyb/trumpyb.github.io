@@ -5,16 +5,45 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mortgage Balance Calculator</title>
+    <style>
+
+    </style>
 </head>
 <body>
-    <label for="principal">Principal</label>
-    <input type="Number" id="principal" name="principal"><br>
-    <label for="interest">Interest</label>
+
+    <table>
+        <tr>
+            <td> 
+                <label for="principal">Principal</label><br>
+                <input type="Number" id="principal" name="principal">
+            </td>
+            <td>
+                <label for="interest">Interest</label><br>
     <input type="number" id="interest" name="interest"><br>
-    <label for="years">Number of years</label>
-    <input type="number" id="years" name="years"><br>
-    <label for="month">Monthly Payments</label>
-    <input type="number" id="month" name="month"><br>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <br>
+            </td>
+
+        </tr>
+
+        <tr>
+            <td>
+                <label for="years">Number of years</label>
+                <input type="number" id="years" name="years">
+            </td>
+            <td>
+                <label for="month">Monthly Payments</label>
+                <input type="number" id="month" name="month">
+            </td>
+        </tr>
+    <table>
+  
+    
+
+
     <button onclick="Calculate()">Calculate</button><button onclick="reset()">Reset</button>
     <p id="opt"></p>
 <script>
@@ -25,9 +54,9 @@
         var t=Number(document.getElementById("years").value)
         var m=Number(document.getElementById("month").value)
         var n=12
-        var b=((p*(1+(r/n)))**(n*t))-((m*(((1+(r/n))**(n*t))-1))/(r/n))
+        var b=(p*((1+(r/n))**(n*t)))-((m*(((1+(r/n))**(n*t))-1))/(r/n))
 
-        output.innerText="Your remaining loan balance is:"+b.toFixed(2)
+        output.innerText="Your remaining loan balance is: $"+b.toFixed(2)
 
     }
     function reset(){
