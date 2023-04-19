@@ -4,9 +4,44 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Mortgage Balance Calculator</title>
 </head>
 <body>
+    <label for="principal">Principal</label>
+    <input type="Number" id="principal" name="principal"><br>
+    <label for="interest">Interest</label>
+    <input type="number" id="interest" name="interest"><br>
+    <label for="years">Number of years</label>
+    <input type="number" id="years" name="years"><br>
+    <label for="month">Monthly Payments</label>
+    <input type="number" id="month" name="month"><br>
+    <button onclick="Calculate()">Calculate</button><button onclick="reset()">Reset</button>
+    <p id="opt"></p>
+<script>
+    function Calculate(){
+        var output=document.getElementById("opt")
+        var p=Number(document.getElementById("principal").value)
+        var r=Number(document.getElementById("interest").value)
+        var t=Number(document.getElementById("years").value)
+        var m=Number(document.getElementById("month").value)
+        var n=12
+        var b=((p*(1+(r/n)))**(n*t))-((m*(((1+(r/n))**(n*t))-1))/(r/n))
+
+        output.innerText="Your remaining loan balance is:"+b.toFixed(2)
+
+    }
+    function reset(){
+        document.getElementById("principal").value=""
+        document.getElementById("interest").value=""
+        document.getElementById("years").value=""
+        document.getElementById("month").value=""
+        document.getElementById("opt").innerText=""
+    }
+    /*
     
+    */
+
+</script>
+
 </body>
 </html>
