@@ -7,7 +7,7 @@
     <title>Mortgage Balance Calculator</title>
     <style>
         body{
-            background-color: darkgreen;
+            background: linear-gradient(darkgreen,green,darkgreen);
         }
         table{
             color: beige;
@@ -20,6 +20,9 @@
         }
         button{
             border-radius: 5px;
+        }
+        td{
+            text-align: center;
         }
     </style>
 </head>
@@ -53,12 +56,8 @@
                 <input type="number" id="month" name="month">
             </td>
         </tr>
-    <table>
-  
-    
-
-
-    <button onclick="Calculate()">Calculate</button>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<button onclick="reset()">Reset</button>
+    <table><br><br>
+    <button onclick="Calculate()">Calculate</button>&emsp;&emsp;<button onclick="reset()">Reset</button>
     <p id="opt"></p>
 <script>
     function Calculate(){
@@ -69,9 +68,11 @@
         var m=Number(document.getElementById("month").value)
         var n=12
         var b=(p*((1+(r/n))**(n*t)))-((m*(((1+(r/n))**(n*t))-1))/(r/n))
-
+        if(b>0){
         output.innerText="Your remaining loan balance is: $"+b.toFixed(2)
-
+        }else{
+            output.innerText="Invalid Output"
+        }
     }
     function reset(){
         document.getElementById("principal").value=""
