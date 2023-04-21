@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>prog122h</title>
+</head>
+<body>
+    <p id="opt"></p>
+    <script>
+        document.getElementById("opt").innerHTML="Number &emsp; Square &emsp; Square Root &emsp; Cube &emsp; 4th Root <br>"
+        for(var lcv=1; lcv<=20; lcv++){
+            document.getElementById("opt").innerHTML+=lcv+"&emsp;&emsp;&emsp;&emsp;&emsp;"+lcv**2+"&emsp;&emsp;&emsp;&emsp;&emsp;"+(lcv**.5).toFixed(4)+"&emsp;&emsp;&emsp;"+lcv**3+"&emsp;&emsp;&emsp;"+(lcv**.25).toFixed(4)+"<br>"
+        }
+    </script>
+</body>
+</html>
