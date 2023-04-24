@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>prog54c with functions</title>
+</head>
+<body>
+    <label for="rad">Radius</label>
+    <input type="number" id="rad" name="rad" placeholder="0" required>
+    <button onclick="calculate()">Calculate</button>
+    <p id="opt"></p>
+    <script>
+        function calculate() {
+            var rad=Number(document.getElementById("rad").value)
+            var arean=area(rad)
+            var circumn=circum(rad)
+            document.getElementById("opt").innerText="Area: "+arean.toFixed(2)+"\nCircumference: "+circumn.toFixed(2)
+          }
+        function circum(radius){
+            return 2*3.14159*radius
+        }
+        function area(radius){
+            return 3.14159*(radius**2)
+        }
+    </script>
+</body>
+</html>
