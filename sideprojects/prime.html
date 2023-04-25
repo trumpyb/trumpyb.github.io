@@ -16,7 +16,7 @@
             var num=Number(document.getElementById("prime").value)
             var lastdigit=document.getElementById("prime").value.slice(-1)
             var mod=str(num%6)
-            var ldigTest=""
+            var ldigtest=""
             var modtest=""
             switch(lastdigit){
                 case "1":
@@ -37,6 +37,7 @@
                 default;
                     modtest="Failed Mod Test"
             }
+            document.getElementById("opt").innerText=ldigtest+"\n"+modtest
         }
     </script>
 </body>
