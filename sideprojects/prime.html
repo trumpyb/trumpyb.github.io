@@ -14,29 +14,22 @@
     <script>
         function check(){
             var num=Number(document.getElementById("prime").value)
-            var lastdigit=document.getElementById("prime").value.slice(-1)
-            var mod=str(num%6)
+            var lastdigit=Number(document.getElementById("prime").value.slice(-1))
+            var mod=num%6
             var ldigtest=""
             var modtest=""
-            switch(lastdigit){
-                case "1":
-                case "3":
-                case "5":
-                case "7":
-                case "9":
-                    ldigTest="Passed Last Digit Test"
-                    break;
-                default:
-                    ldigTest="Failed Last Digit Text"
+            
+            if(lastdigit==1 or lastdigit==3 or lastdigit==5 or lastdigit==7 or lastdigit==9){
+            ldigtest="Passed Last Digit Test"
+            }else{
+            ldigtest="Failed Last Digit Test"
             }
-            switch(mod){
-                case "1":
-                case "5": 
-                    modtest="Passed Mod Test"
-                    break;
-                default;
-                    modtest="Failed Mod Test"
+            if(mod==1 or mod==5){
+            modtest="Passed Mod Test"
+            }else{
+            modtest="Failed Mod Test"
             }
+            
             document.getElementById("opt").innerText=ldigtest+"\n"+modtest
         }
     </script>
