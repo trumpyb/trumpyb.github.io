@@ -13,32 +13,33 @@
     <p id="opt"></p>
     <script>
         function check(){
-            var num=Number(document.getElementById("prime").value)
-            var lastdigit=Number(document.getElementById("prime").value.slice(-1))
-            var mod=num%6
-            var sqrt=math.sqrt(num)
-            var ldigtest=""
-            var modtest=""
-            var sqrtest=""
+            var num=Number(document.getElementById("prime").value);
+            var lastdigit=Number(document.getElementById("prime").value.slice(-1));
+            var mod=num%6;
+            var sqrt=math.sqrt(num);
+            var ldigtest="";
+            var modtest="";
+            var sqrtest="";
+
             if(lastdigit==1 || lastdigit==3 || lastdigit==5 || lastdigit==7 || lastdigit==9){
-                ldigtest="Passed Last Digit Test"
+                ldigtest="Passed Last Digit Test";
             }else{
-                ldigtest="Failed Last Digit Test"
+                ldigtest="Failed Last Digit Test";
             }
 
             if(mod==1 || mod==5){
-                modtest="Passed Mod Test"
+                modtest="Passed Mod Test";
             }else{
-                modtest="Failed Mod Test"
+                modtest="Failed Mod Test";
             }
             
             if( sqrt==sqrt.toFixed(0)){
-                sqrtest="Failed Square Root Test"
+                sqrtest="Failed Square Root Test";
             }else{
-                sqrtest="Passed Square Root Test"
+                sqrtest="Passed Square Root Test";
             }
             
-            document.getElementById("opt").innerText=ldigtest+"\n"+modtest+"\n"+sqrtest
+            document.getElementById("opt").innerText=ldigtest+"\n"+modtest+"\n"+sqrtest;
         }
         
     </script>
