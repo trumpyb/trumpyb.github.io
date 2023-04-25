@@ -12,7 +12,29 @@
     <button onclick="check()">Check Number</button>
     <p id="opt"></p>
     <script>
-        
+        function check(){
+            var num=Number(document.getElementById("prime").value)
+            var lastdigit=document.getElementById("prime").value.slice(-1)
+            var mod=str(num%6)
+            var ldigTest=""
+            var modtest=""
+            switch(lastdigit){
+                case "1":
+                case "3":
+                case "5":
+                case "7":
+                case "9":
+                    ldigTest="Passed Last Digit Test"
+                    break;
+                default:
+                    ldigTest="Failed Last Digit Text"
+            }
+            switch(mod){
+                case "1":
+                case "5": 
+                    modtest="Passed Mod Test"
+            }
+        }
     </script>
 </body>
 </html>
