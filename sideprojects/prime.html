@@ -18,23 +18,20 @@
             var mod=str(num%6)
             var ldigTest=""
             var modtest=""
-            switch(lastdigit){
-                case "1":
-                case "3":
-                case "5":
-                case "7":
-                case "9":
-                    ldigTest="Passed Last Digit Test"
-                    break;
-                default:
-                    ldigTest="Failed Last Digit Text"
+            if(lastdigit==1 || lastdigit==3 || lastdigit==5 || lastdigit==7 || lastdigit==9){
+                ldigtest="Passed Last Digit Test"
+            }else{
+                ldigtest="Failed Last Digit Test"
             }
-            switch(mod){
-                case "1":
-                case "5": 
-                    modtest="Passed Mod Test"
+            if(mod==1 || mod==5){
+                modtest="Passed Mod Test"
+            }else{
+                modtest="Failed Mod Test"
             }
+            
+            document.getElementById("opt").innerText=ldigtest+"\n"+modtest
         }
+        
     </script>
 </body>
 </html>
