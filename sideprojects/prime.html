@@ -13,53 +13,48 @@
     <p id="opt"></p>
     <script>
         function check(){
-            var num=Number(document.getElementById("prime").value);
-            var lastdigit=Number(document.getElementById("prime").value.slice(-1));
-            var mod=num%6;
-            var sqrt=Math.sqrt(num);
-            var cbrt=num**(1.0/3.0)
-            var ldigtest="";
-            var modtest="";
-            var sqrtest="";
-            var cbrtest="";
+            var num=Number(document.getElementById("prime").value)
+            var lastdigit=Number(document.getElementById("prime").value.slice(-1))
+            var mod=num%6
+            var sqrt=Math.sqrt(num)
+            var cbrt=Math.cbrt(num)
+            var ldigtest=""
+            var modtest=""
+            var sqrtest=""
+            var cbrtest=""
 
             if(lastdigit%2!=0 && lastdigit!=5){
-                ldigtest="Passed Last Digit Test";
+                ldigtest="Passed Last Digit Test"
             }else {
-                ldigtest="Failed Last Digit Test";
+                ldigtest="Failed Last Digit Test"
             }
 
             if(lastdigit%2!=0 && num<8){
-                ldigtest="Passed Last Digit Test";
+                ldigtest="Passed Last Digit Test"
             }else if(num<8){
-                ldigtest="Failed Last Digit Test";
+                ldigtest="Failed Last Digit Test"
             }
 
             if(mod==1 || mod==5){
-                modtest="Passed Mod Test";
+                modtest="Passed Mod Test"
             }else{
-                modtest="Failed Mod Test";
-            }
-            
+                modtest="Failed Mod Test"
+            } 
+
             if( sqrt==Math.round(sqrt)){
-                sqrtest="Failed Square Root Test";
+                sqrtest="Failed Square Root Test"
             }else{
-                sqrtest="Passed Square Root Test";
-            }
-            
-            if( sqrt==Math.round(sqrt)){
-                sqrtest="Failed Square Root Test";
-            }else{
-                sqrtest="Passed Square Root Test";
-            }
+                sqrtest="Passed Square Root Test"
+            } 
 
             if( cbrt==Math.round(cbrt)){
-                cbrtest="Failed Cube Root Test";
+                cbrtest="Failed Cube Root Test"
             }else{
-                cbrtest="Passed Cube Root Test";
+                cbrtest="Passed Cube Root Test"
             }
+            
 
-            document.getElementById("opt").innerText=ldigtest+"\n"+modtest+"\n"+sqrtest;+"\n"+cbrtest
+            document.getElementById("opt").innerText=ldigtest+"\n"+modtest+"\n"+sqrtest+"\n"+cbrtest
         }
         
     </script>
