@@ -18,10 +18,16 @@
             var mod=num%6
             var sqrt=Math.sqrt(num)
             var cbrt=Math.cbrt(num)
+            var prime=1
             var ldigtest=""
             var modtest=""
             var sqrtest=""
             var cbrtest=""
+            var primetest=""
+            
+            for(var lcv=2; lcv=Math.round(sqrt)+1; lcv++ ){
+                primetest=primetest*(num%lcv)
+            }
 
             if(lastdigit%2!=0 && lastdigit!=5){
                 ldigtest="Passed Last Digit Test"
@@ -52,9 +58,15 @@
             }else{
                 cbrtest="Passed Cube Root Test"
             }
+
+            if(prime=0){
+                primetest="Not Prime"
+            }else{
+                primetest="Prime"
+            }
             
 
-            document.getElementById("opt").innerText=ldigtest+"\n"+modtest+"\n"+sqrtest+"\n"+cbrtest
+            document.getElementById("opt").innerText=ldigtest+"\n"+modtest+"\n"+sqrtest+"\n"+cbrtest+"\n"+"\n"+primetest
         }
         
     </script>
