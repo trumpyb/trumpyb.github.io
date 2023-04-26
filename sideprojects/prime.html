@@ -17,13 +17,21 @@
             var lastdigit=Number(document.getElementById("prime").value.slice(-1));
             var mod=num%6;
             var sqrt=Math.sqrt(num);
+            var cbrt=num**(1.0/3.0)
             var ldigtest="";
             var modtest="";
             var sqrtest="";
+            var cbrtest="";
 
-            if(lastdigit%2!=0){
+            if(lastdigit%2!=0 && lastdigit!=5){
                 ldigtest="Passed Last Digit Test";
-            }else{
+            }else {
+                ldigtest="Failed Last Digit Test";
+            }
+
+            if(lastdigit%2!=0 && num<8){
+                ldigtest="Passed Last Digit Test";
+            }else if(num<8){
                 ldigtest="Failed Last Digit Test";
             }
 
@@ -33,13 +41,25 @@
                 modtest="Failed Mod Test";
             }
             
-            if( sqrt==sqrt.toFixed(0)){
+            if( sqrt==Math.round(sqrt)){
                 sqrtest="Failed Square Root Test";
             }else{
                 sqrtest="Passed Square Root Test";
             }
             
-            document.getElementById("opt").innerText=ldigtest+"\n"+modtest+"\n"+sqrtest;
+            if( sqrt==Math.round(sqrt)){
+                sqrtest="Failed Square Root Test";
+            }else{
+                sqrtest="Passed Square Root Test";
+            }
+
+            if( cbrt==Math.round(cbrt)){
+                cbrtest="Failed Cube Root Test";
+            }else{
+                cbrtest="Passed Cube Root Test";
+            }
+
+            document.getElementById("opt").innerText=ldigtest+"\n"+modtest+"\n"+sqrtest;+"\n"+cbrtest
         }
         
     </script>
