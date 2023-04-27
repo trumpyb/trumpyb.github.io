@@ -25,8 +25,8 @@
             var cbrtest=""
             var primetest=""
             
-            for(var lcv=2; Math.round(sqrt)+1; lcv++ ){
-                primetest=primetest*(num%lcv)
+            for(var lcv=2; lcv<=Math.ceiling(sqrt); lcv++ ){
+                prime=prime*(num%lcv)
             }
 
             if(lastdigit%2!=0 && lastdigit!=5){
@@ -59,7 +59,7 @@
                 cbrtest="Passed Cube Root Test"
             }
 
-            if(prime=0){
+            if(prime==0){
                 primetest="Not Prime"
             }else{
                 primetest="Prime"
