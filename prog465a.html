@@ -25,6 +25,12 @@
             mat2.push(row2)
             mata.push([])
         }
+
+        for(var r=0; r< mat1.length; r++){
+            for(var c=0; c<mat1[0].length; c++){
+                mata[r][c]=Math.max(mat1[r][c],mat2[r][c])
+            }
+        }
     </script>
 </body>
 </html>
