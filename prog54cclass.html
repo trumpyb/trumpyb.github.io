@@ -7,6 +7,32 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <input type="number" id="rad" name="rad">
+    <button onclick="calc()">Calculate</button>
+    <p id="out"></p>
+
+    <script>
+        class Circle{
+            constructor(radius){
+            this.radius=radius
+            this.pi=3.14159
+            this.area=0
+            this.circumference
+            }
+            calc(){
+                this.area=this.pi*this.radius**2
+                this.circumference=this.pi*this.radius*2
+
+            }
+            getArea(){return this.area}
+            getCircumference(){return this.circumference}
+
+        }
+        function calc(){
+            var rad=Number(document.getElementById('rad').value)
+            var circ = new Circle(rad)
+            document.getElementById("out").innerHTML="Area: "+circ.getArea()+"<br>Circumference: "+circ.getCircumference()
+        }
+    </script>
 </body>
 </html>
