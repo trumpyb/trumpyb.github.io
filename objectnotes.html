@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notes on Objects in Javascript</title>
+</head>
+<body>
+    <script>
+        //Object Notation
+        var hotel={
+            name:"Holiday Inn",
+            rooms:50,
+            booked:30,
+            checkavalible:function(){
+                return this.rooms - this.booked
+            }
+        }
+        document.write(hotel.name+"<br> Rooms: "+hotel.rooms+"<br> Rooms Avalible: "+hotel.checkavalible())
+        
+        //Constructor Notation
+
+        function Hotel(name, rooms, booked){
+            this.name=name
+            this.rooms=rooms
+            this.booked=booked
+            this.checkavalible=function(){
+                return this.rooms - this.booked
+            }
+        }
+
+        var hotel2 = new Hotel("Microtel", 25, 20)
+        document.write("<br>Name: "+hotel2.name+"<br>Rooms Avalible: "+hotel2.checkavalible())
+
+        //Class Notation
+
+        class Hotel2{
+            constructor(names, room, booked){
+            this.name=name
+            this.rooms=rooms
+            this.booked=booked
+            }
+
+            checkavalible(){
+                return this.rooms-this.booked
+            }
+        }
+
+        var hotel3 = new Hotel2("Supr 8", 30, 2);
+        hotel3.name="Super 8"
+        document.write("<br>Name: "+hotel3.name+"<br>Rooms Avalible"+hotel3.checkavalible())
+       
+  
+    </script>
+</body>
+</html>
