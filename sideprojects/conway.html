@@ -9,11 +9,11 @@
 <body>
     <button onclick="inc()">Move Forward Generation</button>
     <button onclick="rand()">Fill Table</button>
-    <div id="table">
+    <div id="tablehold">
 
     </div>
     <script>
-        var table="<table>"
+        var table="<table id="tab">"
         for(var lcv1=1; lcv<=10; lcv++){
             table+="<td>"
             for(var lcv2=1; lcv<=10; lcv++){
@@ -22,7 +22,8 @@
             table+="</td>"
         }
         table+="</table>"
-        document.getElementById("table").innerHTML=table
+        document.getElementById("tablehold").innerHTML=table
+        documnet.getElementById("tab").style.border="1px solid black"
         function inc(){
 
         }
