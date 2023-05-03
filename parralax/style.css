@@ -1,0 +1,17 @@
+.wrapper{
+    height: 100vh;  /* 100% veiwport height */
+    overflow-x: hidden; /* Prevent Horizontal Scroll */
+    overflow-y: auto; /* allow vertical scroll */
+    perspective: 2px; /* simulate distance from vievport*/
+}
+.section{
+    position: relative;
+    height: 100vh;
+    display: flex;
+    color: white;
+    align-items: center;
+    justify-content: center;
+}
+.static{background: red;}
+.bg1::after{background: url("https://picsum.photos/900/700");}
+.bg1::after{background: url("https://picsum.photos/900/600");}
