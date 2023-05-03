@@ -14,9 +14,9 @@
 }
 .static{background: red;}
 .bg1::after{background: url("https://picsum.photos/900/700");}
-.bg1::after{background: url("https://picsum.photos/900/600");}
+.bg2::after{background: url("https://picsum.photos/900/600");}
 
-.parralax::after{
+.parallax::after{
     content: " ";
     position: absolute;
     top: 0;
