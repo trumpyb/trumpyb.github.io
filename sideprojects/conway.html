@@ -15,11 +15,11 @@
     <script>
         var table="<table id="tab">"
         for(var lcv1=1; lcv<=10; lcv++){
-            table+="<td>"
+            table+="<tr>"
             for(var lcv2=1; lcv<=10; lcv++){
-                table+="<tr id='"+lcv1+","+lcv2+"></tr>"
+                table+="<td id='"+lcv1+","+lcv2+"></td>"
             }
-            table+="</td>"
+            table+="</tr>"
         }
         table+="</table>"
         document.getElementById("tablehold").innerHTML=table
