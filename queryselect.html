@@ -7,6 +7,41 @@
     <title>Query Selector Practice</title>
 </head>
 <body>
-    
+    <ul>
+        <li>Test 1</li>
+        <li>Test 2</li>
+        <li>Test 3</li>
+    </ul>
+
+    <p id="wow">Text HERE</p>
+
+    <h1 class="test">Heading 1</h1>
+    <h1 class="test">Heading 2</h1>
+    <h1 class="test">Heading 3</h1>
+
+    <script>
+        // Query Selector Grabs 1st matching Selector
+        var h1=document.querySelector(".test")
+        h1.innerHTML="Updated Heading"
+
+        var p=document.querySelector("#wow")
+        p.textContent="Paragraph"
+
+        var hOneall=document.querySelectorAll(".test")
+
+        for(var lcv=0; lcv<hOneall.length; lcv++){
+            hOneall[lcv].style.backgroundColor="green"
+        }
+
+        var hOneallCl=document.getElementsByClassName("test")
+        for(var lcv=0; lcv<hOneallCl.length; lcv++){
+            hOneallCl[lcv].style.color="white"
+        }
+
+        var li=document.querySelectorAll("li")
+        for(var lcv=0; lcv<li.length; lcv++){
+            li[lcv].style.color="purple"
+        }
+    </script>
 </body>
 </html>
