@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Album</title>
+</head>
+<body>
+    <script>
+var gap=10
+var cirNum=40
+var cirSize=20
+var angle=0
+var ptNum=100
+var rectSize=600
+// mml - R CCL
+// mmr - R CLW
+
+
+function setup() {
+  createCanvas(windowWidth, windowHeight)
+  angleMode(DEGREES)
+}
+// Happens as program is running
+function draw() {
+  background("black")
+  
+  // Costomize mouse
+  noCursor()
+  noStroke()
+  fill('white')
+  circle(mouseX,mouseY,5)
+  
+  //Main Graph
+  
+  push()
+  translate(width/2, height/2)
+  rotate(angle)
+  angle+=map(mouseX,0, width, -0.1, 0.1)
+  
+  noFill()
+  stroke('white')
+  strokeWeight(1)
+  
+  for(var lcv=0; lcv<cirNum; lcv++){
+    arc(0,0, cirSize+gap*lcv, cirSize+gap*lcv, angle*lcv, 360-(angle/2))
+  }
+  
+  
+  pop()
+  push()
+    translate(width/2, height-90)
+    noStroke()
+    textFont("arial")
+    textSize(10)
+    textAlign(CENTER,CENTER)
+    text("Album Title", 0, 0)
+    textSize(8)
+    text("This Is a Demo", 0,20)
+  pop()
+  push()
+    translate(width/2, height/2)
+    noFill()
+    stroke("White")
+    strokeWeight(2)
+    rectMode(CENTER)
+    rect(0,0,rectSize,rectSize)
+    stroke('white')
+    strokeWeight(1)
+    for( lcv=0; lcv<ptNum; lcv++){
+      point(random(-rectSize/2, rectSize/2),random(-rectSize/2, rectSize/2))
+    }
+  
+  pop()
+  
+}
+    </script>
+</body>
+</html>
