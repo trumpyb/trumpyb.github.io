@@ -12,7 +12,7 @@
         var gap = 10;
         var cirNum = 40;
         var cirSize = 20;
-        var angle = 1.12345
+        var angle = 0
         var ptNum = 100;
         var rectSize = 600;
         // Mouse move left - rotate counterclockwise
@@ -38,6 +38,7 @@
             push();  // Store current drawing settings
             translate(width/2, height/2);  // Offset to mid of screen
             rotate(angle);
+            angle += map(mouseX, 0, width, -0.1, 0.1);
             noFill();
             stroke('white');
             strokeWeight(1);
