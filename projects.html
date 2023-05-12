@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label for="txtname">Name</label>
+    <input type="text" id="txtName">
+    <label for="txtname">Email</label>
+    <input type="email" id="txtName">
+    <label for="txtname">Message</label>
+    <input type="text" id="txtName">
+    <input type="button" id="bt" value="Save data to file" onclick="saveFile()" />
+    <script>
+        let saveFile = () => {
+            
+            // Get the data from each element on the form.
+            const name = document.getElementById('txtName');
+            const email = document.getElementById('txtEmail');
+            const msg = document.getElementById('msg');
+            
+            // This variable stores all the data.
+            let data = 
+                '\r Name: ' + name.value + ' \r\n ' + 
+                'Email: ' + email.value + ' \r\n ' + 
+                'Message: ' + msg.value;
+            
+            // Convert the text to BLOB.
+            const textToBLOB = new Blob([data], { type: 'text/plain' });
+            const sFileName = 'formData.txt';	   // The file to save the data.
+    
+            let newLink = document.createElement("a");
+            newLink.download = sFileName;
+    
+            if (window.webkitURL != null) {
+                newLink.href = window.webkitURL.createObjectURL(textToBLOB);
+            }
+            else {
+                newLink.href = window.URL.createObjectURL(textToBLOB);
+                newLink.style.display = "none";
+                document.body.appendChild(newLink);
+            }
+    
+            newLink.click(); 
+        }
+    </script>
+</body>
+</html>
