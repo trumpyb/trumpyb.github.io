@@ -7,13 +7,45 @@
     <title>Home</title>
 </head>
 <body>
-    <h1>About Me</h1>
+    <input type="radio" name="followup" id="followupy" value="Light">
+    <label for="followupy" class="followlabel">Yes</label> 
+    <input type="radio" name="followup" id="followupn" value="Dark">
+    <label for="followupn" class="followlabel">No</label>
+    <h2>About Me</h2>
     <p>
         My name is Benjamin Trumpy. I was born on March the 1st 2006 in Janesville, WI. I am a jounior at Joseph A. Craig High-school. I am very interested in mathimetics and computer programming.
     </p>
-    2. Include the following information on the index page:
-        A paragraph or two about yourself and your interests/hobbies
-        A paragraph about the work you do/offer (make it up if needed); market yourself as a developer!
-        A contact form (doesn’t have to actually submit, just use JS tomake the submit button validate the form)
+    <h2>Work</h2>
+    <p>
+        I can develop websites using HTML, including Javascript and Python components
+    </p>
+
+    <h3>Contact Me</h3>
+    <form action="#" method="post" id="contactform"
+    onsubmit="alert('Not Implemented yet')">
+        <br id="fdiv">
+            <label for="myname">Name: <span class="rqd">*</span></label><br/>
+            <input type="text" name="myname" id="myname" required><br/><br/>
+            
+            <label for="myeamil">Email:<span class="rqd">*</span></label><br/>
+            <input type="emial" name="myemail" id="myeamil" required><br/><br/>
+
+            <label for="subject">Subject:<span class="rqd">*</span></label>
+            <input type="text" name="subject" id="subject"
+                    placeholder="MAKE ME A WEBSITE" required><br/><br/>
+                    <span class="rqd">Message*</span><br/>
+            <textarea name="tbody" id="tbody" placeholder="Enter Message" required></textarea>
+<br><br>
+            <label for="attach">Attachments:</label><br/>
+            <input type="file" name="attach" id="attach"><br/><br/>
+        <label for="followup">Do you want a follow up email?</label>
+        <input type="radio" name="followup" id="followupy" value="yes">
+        <label for="followupy" class="followlabel">Yes</label> 
+        <input type="radio" name="followup" id="followupn" value="no">
+        <label for="followupn" class="followlabel">No</label>   <br/><br/> 
+    
+        <input type="submit" value="submit"  id="sbutton">
+    </div>
+    </form>
 </body>
 </html>
