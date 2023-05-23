@@ -6,11 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
 </head>
-<body>
-    <input type="radio" name="followup" id="followupy" value="Light">
-    <label for="followupy" class="followlabel">Yes</label> 
-    <input type="radio" name="followup" id="followupn" value="Dark">
-    <label for="followupn" class="followlabel">No</label>
+<body id="body">
+    <label for="mode">Color mode</label>
+    <input type="button" name="mode" id="l" onclick="light()" value="Light">
+    <input type="button" name="mode" id="d" onclick="dark()"  value="Dark">
     <h2>About Me</h2>
     <p>
         My name is Benjamin Trumpy. I was born on March the 1st 2006 in Janesville, WI. I am a jounior at Joseph A. Craig High-school. I am very interested in mathimetics and computer programming.
@@ -47,5 +46,18 @@
         <input type="submit" value="submit"  id="sbutton">
     </div>
     </form>
+    <script>
+        function light(){
+            document.getElementById("body").style.color="black"
+            document.getElementById("body").style.background="lightgreen"
+        }
+        function dark(){
+            document.getElementById("body").style.color="white"
+            document.getElementById("body").style.background="darkgreen"
+        }
+        light()
+
+
+    </script>
 </body>
 </html>

@@ -7,6 +7,9 @@
     <title>Portfolio</title>
 </head>
 <body>
+    <label for="mode">Color mode</label>
+    <input type="button" name="mode" id="l" onclick="light()" value="Light">
+    <input type="button" name="mode" id="d" onclick="dark()"  value="Dark">
     Include the following information on the projects page:
  A “photo-gallery” style table of 3-5 (or more) projects you’re
 proud of (can be from other classes, photography you’ve done,
@@ -17,5 +20,18 @@ program, etc.)
 design, web design, software development, game design,
 photography, etc.) make a table for each and include 3-5
 projects
+<script>
+    function light(){
+        document.getElementById("body").style.color="black"
+        document.getElementById("body").style.background="lightgreen"
+    }
+    function dark(){
+        document.getElementById("body").style.color="white"
+        document.getElementById("body").style.background="darkgreen"
+    }
+    light()
+
+
+</script>
 </body>
 </html>
