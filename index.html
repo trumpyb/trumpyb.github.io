@@ -5,8 +5,27 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
+    <style>
+         nav{
+            background: green;
+            top: 0;
+            left: 0;
+            position: fixed;
+            padding: 10px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            z-index: 9999999999;
+        }
+    </style>
 </head>
 <body id="body">
+    <nav id="nav">
+        <a href="https://trumpyb.github.io/index.html">Home</a>
+        <a href="https://trumpyb.github.io/about.html">About</a>
+        <a href="https://trumpyb.github.io/projects.html">Portfolio</a>
+        <label for="mode">Color mode</label>
+    <input type="button" name="mode" id="l" onclick="light()" value="Light">
+    <input type="button" name="mode" id="d" onclick="dark()"  value="Dark">
+    </nav>
     <label for="mode">Color mode</label>
     <input type="button" name="mode" id="l" onclick="light()" value="Light">
     <input type="button" name="mode" id="d" onclick="dark()"  value="Dark">
@@ -50,14 +69,17 @@
         function light(){
             document.getElementById("body").style.color="black"
             document.getElementById("body").style.background="lightgreen"
+            document.getElementById('nav').style.background='darkgreen'
+            document.getElementById('nav').style.color='white'
         }
         function dark(){
             document.getElementById("body").style.color="white"
             document.getElementById("body").style.background="darkgreen"
+            document.getElementById('nav').style.background='lightgreen'
+            document.getElementById('nav').style.color='black'
         }
-        light()
-
-
-    </script>
+        dark()
+     </script>   
 </body>
+</head>
 </html>
