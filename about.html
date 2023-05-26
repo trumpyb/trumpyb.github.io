@@ -6,11 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About</title>
     <style>
+        .mode{
+            float:right;
+        }
         a{
             text-decoration: none;
-            color: lightblue;
+            color: blue;
         }
         nav{
+           
            background: green;
            top: 0;
            left: 0;
@@ -18,6 +22,7 @@
            padding: 10px;
            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
            z-index: 9999999999;
+           padding: 10px;
        }
    </style>
 </head>
@@ -26,9 +31,9 @@
         <a href="https://trumpyb.github.io/index.html">Home</a>
         <a href="https://trumpyb.github.io/about.html">About</a>
         <a href="https://trumpyb.github.io/projects.html">Portfolio</a>
-        <label for="mode">Color mode</label>
-    <input type="button" name="mode" id="l" onclick="light()" value="Light">
-    <input type="button" name="mode" id="d" onclick="dark()"  value="Dark">
+        <label for="mode" class="mode">Color mode</label>
+    <input type="button" name="mode" id="l" onclick="light()" value="Light" class="mode">
+    <input type="button" name="mode" id="d" onclick="dark()"  value="Dark" class="mode">
     </nav>
     <br><br>
     I am currently in my Jounior year of high school<br>
