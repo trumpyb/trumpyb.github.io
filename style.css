@@ -73,3 +73,9 @@ nav{
    z-index: 9999999999;
    padding: 10px;
 }
+img, iframe{
+    border-radius: 100px;
+    width: 100px;
+    height: 100px;
+    display: inline;
+}
