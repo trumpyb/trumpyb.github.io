@@ -10,4 +10,3 @@ function dark(){
     document.getElementById('nav').style.background='lightgreen'
     document.getElementById('nav').style.color='black'
 }
-dark()
