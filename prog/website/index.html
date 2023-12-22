@@ -9,6 +9,15 @@
    <!--Thanks For The Py Code Daniel-->
 </head>
 <body>
+    <div id="output"></div>
+
+<py-script>
+
+element = document.createElement('h1')
+element.innerText = "Hello"
+document.getElementById("output").append(element)
+
+</py-script>
     <py-script>
       $ python -m pip install requests
       import requests
