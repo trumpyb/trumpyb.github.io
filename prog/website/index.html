@@ -30,7 +30,8 @@ html = BeautifulSoup(page.content, "html.parser")
 
 
 replit.clear()
-open('trumpyb.github.io/prog/website/site.html','w').write(str(html))
+with open("site.html", "w") as outf:
+    outf.write(str(html))
 
 
 
