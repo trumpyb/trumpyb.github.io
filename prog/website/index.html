@@ -1,4 +1,16 @@
-import requests
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pyscript Test</title>
+    <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+   <!--Thanks For The Py Code Daniel-->
+</head>
+<body>
+    <py-script>
+      import requests
 from bs4 import BeautifulSoup
 from requests.exceptions import ConnectionError
 import replit
@@ -17,8 +29,15 @@ html = BeautifulSoup(page.content, "html.parser")
 
 
 replit.clear()
-open('index.html','w').close()
+open('https://trumpyb.github.io/prog/website/site.html','w').close()
 
-<a href="https://trumpyb.github.io/website/projects.html">Portfolio</a>
 
-open('index.html','a').write(str(html))
+
+open('https://trumpyb.github.io/prog/website/site.html','a').write(str(html))
+
+
+
+    </py-script>
+  <a href="https://trumpyb.github.io/prog/website/site.html">site</a>
+</body>
+</html>
