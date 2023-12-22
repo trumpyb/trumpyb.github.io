@@ -1,1 +1,24 @@
+import requests
+from bs4 import BeautifulSoup
+from requests.exceptions import ConnectionError
+import replit
 
+replit.clear()
+
+website = input("Please enter your website\n")
+
+try:
+  page = requests.get(website)
+except ConnectionError:
+  print('Error')
+  exit()
+
+html = BeautifulSoup(page.content, "html.parser")
+
+
+replit.clear()
+open('index.html','w').close()
+
+<a href="https://trumpyb.github.io/website/projects.html">Portfolio</a>
+
+open('index.html','a').write(str(html))
