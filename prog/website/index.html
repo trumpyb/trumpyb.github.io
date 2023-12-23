@@ -13,29 +13,14 @@
 const fs = require('fs');
 const jsdom = require('jsdom');
 const { JSDOM } = jsdom;
-
-const clearConsole = () => {
-    console.clear();
-};
-
+        
 clearConsole();
 
 const getInput = async () => {
-    const website = await new Promise((resolve) => {
-        const readline = require('readline');
-        const rl = readline.createInterface({
-            input: process.stdin,
-            output: process.stdout
-        });
-
-        rl.question('Input Website\n', (answer) => {
-            resolve(answer);
-            rl.close();
-        });
-    });
-
-    return website;
-};
+const website = await new Promise((resolve) => {
+const readline = require('readline');
+const rl = readline.createInterface({
+        
 
 const main = async () => {
     const website = await getInput();
@@ -62,6 +47,10 @@ const main = async () => {
 
 main();
     </script>
+      <label for="site">Web site:</label>
+      <input type="text" id="site" name="site"><br><br>
+      <input type="submit" value="Submit">
+    <div id='log'></div>
   <a href="https://trumpyb.github.io/prog/website/site.html">site</a>
 </body>
 </html>
