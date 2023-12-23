@@ -10,32 +10,60 @@
 </head>
 <body>
 
-    <py-script>
-      $ python -m pip install requests
-      import requests
-from bs4 import BeautifulSoup
-from requests.exceptions import ConnectionError
-import replit
-replit.clear()
+    <script>
+        const axios = require('axios');
+const fs = require('fs');
+const jsdom = require('jsdom');
+const { JSDOM } = jsdom;
 
-website = 'https://stackoverflow.com/questions/35355225/edit-and-create-html-file-using-python'
+const clearConsole = () => {
+    console.clear();
+};
 
-try:
-  page = requests.get(website)
-except ConnectionError:
-  print('Error')
-  exit()
+clearConsole();
 
-html = BeautifulSoup(page.content, "html.parser")
+const getInput = async () => {
+    const website = await new Promise((resolve) => {
+        const readline = require('readline');
+        const rl = readline.createInterface({
+            input: process.stdin,
+            output: process.stdout
+        });
 
+        rl.question('Input Website\n', (answer) => {
+            resolve(answer);
+            rl.close();
+        });
+    });
 
-replit.clear()
-with open("site.html", "w") as outf:
-    outf.write(str(html))
+    return website;
+};
 
+const main = async () => {
+    const website = await getInput();
 
+    try {
+        const response = await axios.get(website);
+        const html = response.data;
+        const dom = new JSDOM(html);
+        const { document } = dom.window;
 
-    </py-script>
+        clearConsole();
+        fs.writeFileSync('site.html', document.documentElement.outerHTML);
+
+        console.clear();
+        console.log('https://trumpyb.github.io/prog/website/site.html');
+    } catch (error) {
+        if (error.isAxiosError && error.response && error.response.status === 404) {
+            console.log('Error: Page not found');
+        } else {
+            console.log('Error');
+        }
+    }
+};
+
+main();
+    </script>
   <a href="https://trumpyb.github.io/prog/website/site.html">site</a>
 </body>
 </html>
