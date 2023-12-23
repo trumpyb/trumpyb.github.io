@@ -1,6 +1,6 @@
 <?php
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $websiteUrl = $_POST["websiteUrl"];
+if ($_SERVER["REQUEST_METHOD"] == "GET") {
+    $websiteUrl = $_GET["websiteUrl"];
 
     // Fetch HTML content
     $htmlContent = file_get_contents($websiteUrl);
